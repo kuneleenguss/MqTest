@@ -1,0 +1,1750 @@
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:42 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:43 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:43 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:43 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:43 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:43 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:43 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:43 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:43 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:43 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
+23 января 2024 г., 06:22:43 YEKT[Jmqi AsyncConsume Thread. tid: 2] com.ibm.msg.client.jms.internal.JmsProviderExceptionListener
+Исключительная ситуация проигнорирована, потому что обработчик исключений не зарегистрирован: '
+                     Сообщение : com.ibm.msg.client.jms.DetailedJMSException: JMSCC0037: Исключительная ситуация среды выполнения выброшена методом MessageListener.onMessage().
+Приемник сообщений с зарегистрированным обработчиком сообщений получил исключительную ситуацию из метода onMessage().
+Необходимо изменить метод onMessage(), чтобы избежать исключительной ситуации.
+                         Класс : class com.ibm.msg.client.jms.DetailedJMSException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1379)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [1] --> Сообщение : java.lang.Exception: java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.Exception
+               Блокнот вкладок : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.handleOnMessageThrowable(JmsMessageConsumerImpl.java:1380)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1243)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+     Вызвано [2] --> Сообщение : java.lang.UnsupportedOperationException: JMSCC0030: Нельзя указывать назначение при отправке из этого поставщика.
+                         Класс : class java.lang.UnsupportedOperationException
+               Блокнот вкладок : jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+                               : java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+                               : java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+                               : com.ibm.msg.client.commonservices.j2se.NLSServices.createException(NLSServices.java:319)
+                               : com.ibm.msg.client.commonservices.nls.NLSServices.createException(NLSServices.java:226)
+                               : com.ibm.msg.client.jms.internal.JmsErrorUtils.createException(JmsErrorUtils.java:126)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.checkNotIdentifiedProducer(JmsMessageProducerImpl.java:993)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.sendInternal(JmsMessageProducerImpl.java:1950)
+                               : com.ibm.msg.client.jms.internal.JmsMessageProducerImpl.send(JmsMessageProducerImpl.java:1535)
+                               : com.ibm.mq.jms.MQQueueSender.send(MQQueueSender.java:131)
+                               : org.example.Main$1.onMessage(Main.java:49)
+                               : com.ibm.mq.jms.MQMessageConsumer$FacadeMessageListener.onMessage(MQMessageConsumer.java:324)
+                               : com.ibm.msg.client.jms.internal.JmsMessageConsumerImpl$JmsProviderMessageListener.onMessage(JmsMessageConsumerImpl.java:1214)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.honourNoLocal(WMQAsyncConsumerShadow.java:687)
+                               : com.ibm.msg.client.wmq.internal.WMQAsyncConsumerShadow.consumer(WMQAsyncConsumerShadow.java:514)
+                               : com.ibm.mq.jmqi.local.internal.LocalProxyConsumer.jmqiConsumerMethod(LocalProxyConsumer.java:207)
+'.
+
+Объяснение:
+Произведена попытка доставить исключительную ситуацию в обработчик исключительных ситуаций соединений, но обработчик не зарегистрирован.
+
+Действие:
+Необходимо зарегистрировать обработчик исключений в соединении для получения его исключительных ситуаций.
+--------------------------------------------------------------------
